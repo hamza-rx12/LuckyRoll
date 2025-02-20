@@ -1,4 +1,4 @@
-package com.luckyroll.luckyroll;
+package com.luckyroll.luckyroll.Model;
 
 public class User {
     private String username;
