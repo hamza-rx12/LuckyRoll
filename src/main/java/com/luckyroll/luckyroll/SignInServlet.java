@@ -26,12 +26,19 @@ public class SignInServlet extends HttpServlet {
         String username = request.getParameter("username");
         String password = request.getParameter("password");
         List<User> userList = (List<User>) getServletContext().getAttribute("users");
-        for (User user : userList) {
-            if (user.getUsername().equals(username) && user.getPassword().equals(password)) {
-                request.getSession().setAttribute("user", user);
-                request.getRequestDispatcher("menu").forward(request,response);
+
+        if (userList == null || userList.size() == 0) {
+            response.sendRedirect("sign-in");
+        }
+        else{
+            for (User user : userList) {
+                if (user.getUsername().equals(username) && user.getPassword().equals(password)) {
+                    request.getSession().setAttribute("user", user);
+                    request.getRequestDispatcher("menu").forward(request,response);
+                }
             }
         }
+
         PrintWriter out = response.getWriter();
         response.setContentType("text/plain");
         out.println("username: " + request.getParameter("username"));

@@ -44,7 +44,7 @@ public class SignUpServlet extends HttpServlet {
         out.println("<script>");
         out.println("setTimeout(function() {");
         out.println("    window.location.href = 'sign-in';");
-        out.println("}, 7000);");  // 3000 milliseconds = 3 seconds
+        out.println("}, 1000);");  // 3000 milliseconds = 3 seconds
         out.println("</script>");
 
         out.println("</body></html>");
