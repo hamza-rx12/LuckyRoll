@@ -43,13 +43,11 @@ public class SignUpServlet extends HttpServlet {
         // Add JavaScript to delay the redirection
         out.println("<script>");
         out.println("setTimeout(function() {");
-        out.println("    window.location.href = 'sign-in';");
-        out.println("}, 1000);");  // 3000 milliseconds = 3 seconds
+        out.println("    window.location.href = '"+request.getContextPath()+"/sign-in';");
+        out.println("}, 3000);");  // 3000 milliseconds = 3 seconds
         out.println("</script>");
-
         out.println("</body></html>");
-//        out.println(newUser);
-//        out.println(getServletContext().getAttribute("users"));
+
 
     }
 

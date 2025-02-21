@@ -14,8 +14,9 @@ import java.io.PrintWriter;
 public class WelcomeServlet extends HttpServlet {
 
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
-        RequestDispatcher dispatcher = request.getRequestDispatcher("WEB-INF/welcome.jsp");
+        RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/welcome.jsp");
         dispatcher.forward(request, response);
+
     }
 
 }

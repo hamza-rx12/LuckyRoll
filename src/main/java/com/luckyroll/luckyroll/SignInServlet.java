@@ -9,7 +9,6 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.util.List;
 
 @WebServlet(name = "signInServlet", value = "/sign-in")
@@ -21,28 +20,20 @@ public class SignInServlet extends HttpServlet {
     }
 
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
-//        request.getParameter("username");
-//        request.getParameter("password");
+
         String username = request.getParameter("username");
         String password = request.getParameter("password");
         List<User> userList = (List<User>) getServletContext().getAttribute("users");
 
-        if (userList == null || userList.size() == 0) {
-            response.sendRedirect("sign-in");
-        }
-        else{
-            for (User user : userList) {
-                if (user.getUsername().equals(username) && user.getPassword().equals(password)) {
-                    request.getSession().setAttribute("user", user);
-                    request.getRequestDispatcher("menu").forward(request,response);
-                }
+        for (User user : userList) {
+            if (user.getUsername().equals(username) && user.getPassword().equals(password)) {
+                request.getSession().setAttribute("user", user);
+                request.getRequestDispatcher("menu").forward(request,response);
             }
         }
 
-        PrintWriter out = response.getWriter();
-        response.setContentType("text/plain");
-        out.println("username: " + request.getParameter("username"));
-        out.println("password: " + request.getParameter("password"));
+        request.setAttribute("user_not_found","username or password incorrect");
+        doGet(request, response);
 
     }
 

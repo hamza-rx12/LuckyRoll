@@ -20,7 +20,7 @@ public class MenuServlet extends HttpServlet {
         if (session != null) {
             User user = (User) session.getAttribute("user");
             request.setAttribute("user", user);
-            request.getRequestDispatcher("WEB-INF/menu.jsp").forward(request,response);
+            request.getRequestDispatcher("/WEB-INF/menu.jsp").forward(request,response);
         }else{
             response.sendRedirect("sign-in");
         }

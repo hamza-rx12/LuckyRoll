@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
@@ -10,16 +11,15 @@
         height: 60vh;
         flex-direction: column;
         text-align: center;">
-
     <h1>Welcome to LuckyRoll!</h1>
+<%--    <h2>Context Pth = ${pageContext.request.contextPath}</h2>--%>
     <h2>Don't play for free! Turn your luck into money with LuckyRoll!</h2>
-    <a href="sign-in" style="padding-bottom: 10px">
+    <a href="${pageContext.request.contextPath}/sign-in" style="padding-bottom: 10px">
         <button>Sign in</button>
     </a>
-    <a href="sign-up">
+    <a href="${pageContext.request.contextPath}/sign-up">
         <button>Sign up</button>
     </a>
-
 
 </body>
 </html>

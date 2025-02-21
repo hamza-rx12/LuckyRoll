@@ -20,7 +20,7 @@
         <input type="text" id="pass" name="password" placeholder="enter password"><br>
         <label for="passconf">Confirm password:</label><br>
         <input type="text" id="passconf" name="passconf" placeholder="confirm password"><br><br>
-        <input type="submit" value="Submit">
+        <input type="submit" value="Register">
     </form>
 
 </body>
