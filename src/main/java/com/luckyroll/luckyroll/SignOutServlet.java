@@ -11,6 +11,7 @@ import java.io.PrintWriter;
 @WebServlet(name = "signOutServlet", value = "/sign-out")
 public class SignOutServlet extends HttpServlet {
 
+    
 
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
         response.setContentType("text/html");
